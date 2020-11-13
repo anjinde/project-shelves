@@ -26,8 +26,8 @@ public class DateUtil {
     }
 
     /**
-    * »ñÈ¡Ö¸¶¨ÈÕÆÚ·¶Î§ÄÚµÄËùÓĞÖ¸¶¨ĞÇÆÚ °üº¬¿ªÊ¼ÈÕÆÚºÍ½áÊøÈÕÆÚ
-     * @param weeks 1,3,7±íÊ¾ÖÜÒ»£¬ÖÜÈı£¬ÖÜÈÕ
+    * è·å–æŒ‡å®šæ—¥æœŸèŒƒå›´å†…çš„æ‰€æœ‰æŒ‡å®šæ˜ŸæœŸ åŒ…å«å¼€å§‹æ—¥æœŸå’Œç»“æŸæ—¥æœŸ
+     * @param weeks 1,3,7è¡¨ç¤ºå‘¨ä¸€ï¼Œå‘¨ä¸‰ï¼Œå‘¨æ—¥
     * @return List<LocalDate>
     */
    public static List<LocalDate> getWeekLocalDateListByRange(LocalDate startDay, LocalDate endDay, List<String> weeks) {
@@ -48,8 +48,8 @@ public class DateUtil {
     }
 
     /**
-     * »ñÈ¡Ö¸¶¨ÈÕÆÚ·¶Î§ÄÚµÄËùÓĞÖ¸¶¨dayOfMonth °üº¬¿ªÊ¼ÈÕÆÚºÍ½áÊøÈÕÆÚ
-     * @param months 1,29,31±íÊ¾Ã¿ÔÂµÄ1ºÅ£¬29ºÅ£¬31ºÅ
+     * è·å–æŒ‡å®šæ—¥æœŸèŒƒå›´å†…çš„æ‰€æœ‰æŒ‡å®šdayOfMonth åŒ…å«å¼€å§‹æ—¥æœŸå’Œç»“æŸæ—¥æœŸ
+     * @param months 1,29,31è¡¨ç¤ºæ¯æœˆçš„1å·ï¼Œ29å·ï¼Œ31å·
      * @return List<LocalDate>
      */
     public static List<LocalDate> getLocalDateListByMonth(LocalDate startDate,LocalDate endDate,List<String> months){
@@ -75,7 +75,7 @@ public class DateUtil {
     }
 
     /**
-    * »ñÈ¡Ö¸¶¨·¶Î§ÄÚËùÓĞÈÕÆÚ£¬°üº¬¿ªÊ¼ÈÕÆÚºÍ½áÊøÈÕÆÚ
+    * è·å–æŒ‡å®šèŒƒå›´å†…æ‰€æœ‰æ—¥æœŸï¼ŒåŒ…å«å¼€å§‹æ—¥æœŸå’Œç»“æŸæ—¥æœŸ
     * @return List<LocalDate>
     */
     public static List<LocalDate> getLocalDateByDay(LocalDate startDate,LocalDate endDate){
@@ -102,7 +102,7 @@ public class DateUtil {
 	public static final String DATE_FORMAT_ISO_8601 = "yyyy-MM-dd'T'HH:mm:ss.SSSZ";
 
     /**
-     * ×ªÎªISO8601±ê×¼Ê±¼ä 2018-12-12T14:03:27.505+0800£¬Ê¹ÓÃÄ¬ÈÏÊ±Çø
+     * è½¬ä¸ºISO8601æ ‡å‡†æ—¶é—´ 2018-12-12T14:03:27.505+0800ï¼Œä½¿ç”¨é»˜è®¤æ—¶åŒº
      * @param localDateTime localDateTime
      */
     public static String getStandardTime(LocalDateTime localDateTime){
@@ -112,7 +112,7 @@ public class DateUtil {
     }
 
     /**
-     * ·µ»Øµ±Ìì×îÍíµÄÊ±¼ä2018-12-16T23:59:59.000+0800£¬Ê¹ÓÃÄ¬ÈÏÊ±Çø
+     * è¿”å›å½“å¤©æœ€æ™šçš„æ—¶é—´2018-12-16T23:59:59.000+0800ï¼Œä½¿ç”¨é»˜è®¤æ—¶åŒº
      * @param localDate localDate
      */
     public static String getEndTime(LocalDate localDate){
@@ -120,15 +120,94 @@ public class DateUtil {
     }
 
     /**
-     * ·µ»Øµ±Ìì×îÔçµÄÊ±¼ä2018-12-16T00:00:00.000+0800£¬Ê¹ÓÃÄ¬ÈÏÊ±Çø
+     * è¿”å›å½“å¤©æœ€æ—©çš„æ—¶é—´2018-12-16T00:00:00.000+0800ï¼Œä½¿ç”¨é»˜è®¤æ—¶åŒº
      * @param localDate localDate
      */
     public static String getStartTime(LocalDate localDate){
         return getStandardTime(localDate.atStartOfDay());
     }
+	
+	
+   /**
+   é—´éš”è®¡ç®—
+	ä½¿ç”¨Durationè¿›è¡Œ day,hour,minute,secondç­‰çš„è®¡ç®— 
+
+	ä½¿ç”¨Periodè¿›è¡ŒYear,Monthçš„è®¡ç®—
+   */
+public static void block1(){
+	Duration duration = Duration.between(localDateTime,localDateTime4);
+	duration.toDays();
+	duration.toHours();
+	duration.toMinutes();
+	Period period2 = Period.between(localDateTime.toLocalDate(),localDateTime4.toLocalDate());
+	period2.getYears();
+	period2.getMonths();
+	period2.toTotalMonths();
+
+}
+	
+/**
+å¾ªç¯æŸæ®µæ—¶é—´
+*/
+public static void block2(){
+	LocalDate start = LocalDate.of(2019, 4, 29);
+        LocalDate end = LocalDate.of(2019, 7, 29);
+        do {
+            System.out.println(start);
+            start = start.plusDays(1);
+        } while (start.toEpochDay() <= end.toEpochDay());
+
+}	
+	
+/**
+ å¾ªç¯æŸæ®µæ—¶é—´
+*/
+public static void block2(){
+	LocalDate start = LocalDate.of(2019, 4, 29);
+        LocalDate end = LocalDate.of(2019, 7, 29);
+        do {
+            System.out.println(start);
+            start = start.plusDays(1);
+        } while (start.toEpochDay() <= end.toEpochDay());
+
+}	
+	
+/**
+ * è·å–æœ€è¿‘7å¤©æ¯å¤©å¼€å§‹å’Œç»“æŸæ—¶é—´æˆ³
+ * 
+ */
+public static void block3(){
+     LocalDate start = LocalDate.now().plusDays(-7);
+        LocalDate end = LocalDate.now();
+        do {
+            start.atStartOfDay().atZone(ZoneId.systemDefault()).toInstant().toEpochMilli();                               
+            start.atTime(LocalTime.MAX).atZone(ZoneId.systemDefault())
+                .toInstant().toEpochMilli();
+            start = start.plusDays(1);
+        } while (start.toEpochDay() <= end.toEpochDay());
+}
+    
+/**
+ * 
+ * è·å–æœˆåˆæœˆæœ«
+ * 
+ */
+public static void block4() {
+        String count_date="2020-02-05";
+        //è·å–æœˆåˆ
+        LocalDate monthOfFirstDate=LocalDate.parse(count_date,
+                DateTimeFormatter.ofPattern("yyyy-MM-dd")).with(TemporalAdjusters.firstDayOfMonth());
+        //è·å–æœˆæœ«
+        LocalDate monthOfLastDate=LocalDate.parse(count_date,
+                DateTimeFormatter.ofPattern("yyyy-MM-dd")).with(TemporalAdjusters.lastDayOfMonth());
+        TemporalAdjusters.firstDayOfMonth();
+        
+        System.out.println(monthOfFirstDate);
+        System.out.println(monthOfLastDate);
+    }
 
 	
-	
+
 	
 
 }
